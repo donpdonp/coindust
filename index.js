@@ -3,15 +3,22 @@ var Chain = require('chain-node')
 var btcjs = require('bitcoinjs-lib')
 
 var chain_settings = JSON.parse(fs.readFileSync('chain.json'))
-console.log(chain_settings)
 var chain = new Chain(chain_settings)
 
-var from_addr = process.argv[0]
-chain.getAddressUnspents(from_addr, function(err, resp) {
-  console.log(from_addr, 'unspents', err, resp)
+var from = btcjs.ECKey.fromWIF(process.argv[2])
+var to = process.argv[3]
+var amount = 0
+var from_addr = from.pub.getAddress().toString()
+chain.getAddressUnspents(from_addr, function(err, unspents) {
+  var tx = new btcjs.TransactionBuilder()
+  unspents.forEach(function(out){
+    console.log(from_addr, 'unspent', out.value * 0.00000001)
+    amount = amount + out.value
+    tx.addInput(out.transaction_hash, out.output_index)
+  })
+  console.log('sending', amount, 'to', to)
+  tx.addOutput(to, amount)
+  tx.sign(0,from)
+  console.log(tx.build().toHex())
 });
-tx = new btcjs.Transaction()
-tx.addOutput("1Gokm82v6DmtwKEB8AiVhm82hyFSsEvBDK", 15000)
-key = btcjs.ECKey.fromWIF("L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC7Vs6nZDTF2BRUVwy")
-console.log('imported key', key.pub.getAddress().toString() )
 
