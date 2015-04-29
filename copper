@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+var copper = require('./lib/copper')
+console.log('I am copper')
