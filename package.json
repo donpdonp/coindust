@@ -2,6 +2,7 @@
                     "decimal.js": "*",
                     "chalk": "*",
                     "yargs": "*",
+                    "bluebird": "*",
                     "chain-node": "*" 
                   },
   "bin" : {"copper":"copper"}

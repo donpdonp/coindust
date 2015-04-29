@@ -1,12 +1,21 @@
 #!/usr/bin/env node
 
+// npm
 var chalk = require('chalk')
 var args = require('yargs').argv
+
+// local
 var Copper = require('./lib/copper')
 var copper = new Copper()
 
+// setup
 var walletFile = args.wallet || process.env.HOME+"/.bitcoin/wallet.dat"
 var keys = copper.loadBitcoinWallet(walletFile)
 
+// go
 console.log('wallet:', walletFile)
 console.log('', chalk.green(keys.length), 'keys read.')
+
+copper.balance(keys).then(function(balance){
+  console.log('Wallet Total:', chalk.green(balance))
+})
