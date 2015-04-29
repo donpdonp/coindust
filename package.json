@@ -1,6 +1,7 @@
 { "dependencies": { "bitcoinjs-lib": "~> 1.5.6", 
                     "decimal.js": "*",
                     "chalk": "*",
+                    "yargs": "*",
                     "chain-node": "*" 
                   }
 }

@@ -1,4 +1,7 @@
 #!/usr/bin/env node
 
-var copper = require('./lib/copper')
+var argv = require('yargs').argv;
+var Copper = require('./lib/copper')
+var copper = new Copper(argv)
+
 console.log('I am copper')
