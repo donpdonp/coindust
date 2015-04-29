@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
-var argv = require('yargs').argv;
+var chalk = require('chalk')
+var args = require('yargs').argv
 var Copper = require('./lib/copper')
-var copper = new Copper(argv)
+var copper = new Copper()
 
-console.log('I am copper')
+var walletFile = args.wallet || process.env.HOME+"/.bitcoin/wallet.dat"
+var keys = copper.loadBitcoinWallet(walletFile)
+
+console.log('wallet:', walletFile)
+console.log('', chalk.green(keys.length), 'keys read.')

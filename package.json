@@ -3,5 +3,6 @@
                     "chalk": "*",
                     "yargs": "*",
                     "chain-node": "*" 
-                  }
+                  },
+  "bin" : {"copper":"copper"}
 }
