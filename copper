@@ -1,5 +1,5 @@
-#!/usr/bin/env node
-
+// node
+var fs = require('fs')
 // npm
 var chalk = require('chalk')
 var Decimal = require('decimal.js')
@@ -9,28 +9,26 @@ var args = require('yargs').argv
 var Copper = require('./lib/copper')
 var copper = new Copper()
 
-// setup
-var walletFile = args.wallet || process.env.HOME+"/.bitcoin/wallet.dat"
-var keys = copper.loadBitcoinWallet(walletFile)
-if(!keys) {
-  console.error('no wallet file found')
-  process.exit()
+if(args._.length == 1 && args._[0].length == 34) {
+  args._.unshift('balance')
 }
 
-// go
-console.log('wallet:', walletFile)
-console.log('', chalk.green(keys.length), 'keys read.')
-
-var cmd = args._.pop() || 'balance'
+var cmd = args._.shift() || 'balance'
 
 if(cmd === 'balance') {
-  copper.balances(keys).then(function(balances){
-    var total = balances.reduce(function(memo, balance){return memo.plus(balance)}, new Decimal(0))
-    console.log('Wallet Total:', chalk.green(total))
-  })
-}
+  var keys
 
-if(cmd === 'balances') {
+  if(args._.length > 0) {
+    var first = args._.shift()
+    keys = [ copper.keyFromAddress(first) ]
+  }
+
+  if(args.wallet) {
+    console.log('wallet:', args.wallet)
+    keys = copper.loadBitcoinWallet(args.wallet)
+    console.log('' + chalk.green(keys.length), 'keys read.')
+  }
+
   copper.balances(keys).then(function(balances){
     var rows = []
     for(var idx in keys) {
@@ -41,5 +39,7 @@ if(cmd === 'balances') {
     values.forEach(function(row){
       console.log(row.pub, row.balance.toString())
     })
+    var total = balances.reduce(function(memo, balance){return memo.plus(balance)}, new Decimal(0))
+    console.log('Wallet Total:', chalk.green(total))
   })
 }
