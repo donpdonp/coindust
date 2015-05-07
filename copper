@@ -2,6 +2,7 @@
 
 // npm
 var chalk = require('chalk')
+var Decimal = require('decimal.js')
 var args = require('yargs').argv
 
 // local
@@ -23,8 +24,22 @@ console.log('', chalk.green(keys.length), 'keys read.')
 var cmd = args._.pop() || 'balance'
 
 if(cmd === 'balance') {
-  copper.balance(keys).then(function(balance){
-    console.log('Wallet Total:', chalk.green(balance))
+  copper.balances(keys).then(function(balances){
+    var total = balances.reduce(function(memo, balance){return memo.plus(balance)}, new Decimal(0))
+    console.log('Wallet Total:', chalk.green(total))
   })
 }
 
+if(cmd === 'balances') {
+  copper.balances(keys).then(function(balances){
+    var rows = []
+    for(var idx in keys) {
+      rows.push({pub:keys[idx].pub, balance:balances[idx]})
+    }
+    rows.sort(function(a,b){return a.balance.minus(b.balance).toFixed()})
+    var values = rows.filter(function(row){return row.balance > 0})
+    values.forEach(function(row){
+      console.log(row.pub, row.balance.toString())
+    })
+  })
+}
