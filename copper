@@ -11,11 +11,20 @@ var copper = new Copper()
 // setup
 var walletFile = args.wallet || process.env.HOME+"/.bitcoin/wallet.dat"
 var keys = copper.loadBitcoinWallet(walletFile)
+if(!keys) {
+  console.error('no wallet file found')
+  process.exit()
+}
 
 // go
 console.log('wallet:', walletFile)
 console.log('', chalk.green(keys.length), 'keys read.')
 
-copper.balance(keys).then(function(balance){
-  console.log('Wallet Total:', chalk.green(balance))
-})
+var cmd = args._.pop() || 'balance'
+
+if(cmd === 'balance') {
+  copper.balance(keys).then(function(balance){
+    console.log('Wallet Total:', chalk.green(balance))
+  })
+}
+
