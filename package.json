@@ -3,6 +3,7 @@
                     "chalk": "*",
                     "yargs": "*",
                     "bluebird": "*",
+                    "request-promise": "*",
                     "chain-node": "*" 
                   },
   "bin" : {"copper":"copper"}
