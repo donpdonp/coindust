@@ -43,3 +43,10 @@ if(cmd === 'balance') {
     console.log('Wallet Total:', chalk.green(total))
   })
 }
+
+if(cmd === 'new') {
+  var key = copper.newKey()
+  console.log('prv:', chalk.red(key.priv))
+  console.log('pub:', chalk.green(key.pub))
+}
+
