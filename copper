@@ -26,9 +26,14 @@ if(cmd === 'balance') {
   if(args.wallet) {
     console.log('wallet:', args.wallet)
     keys = copper.loadBitcoinWallet(args.wallet)
-    console.log('' + chalk.green(keys.length), 'keys read.')
+    if(keys) {
+      console.log('' + chalk.green(keys.length), 'keys read.')
+    } else {
+      console.log('error loading wallet')
+    }
   }
 
+  console.log('gathering balances for', keys.length, 'keys')
   copper.balances(keys).then(function(balances){
     var rows = []
     for(var idx in keys) {
