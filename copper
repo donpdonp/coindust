@@ -55,3 +55,7 @@ if(cmd === 'new') {
   console.log('pub:', chalk.green(key.pub))
 }
 
+if(cmd === 'send') {
+  var from = args._.shift()
+  console.log('send', from)
+}
