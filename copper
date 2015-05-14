@@ -65,15 +65,21 @@ if(cmd === 'new') {
 
 if(cmd === 'tx') {
   var from = args._.shift()
-  console.log('tx', 'in', args.in, 'out', args.out, 'amount', args.amount)
   var walletKey = copper.keyFind(keys, args.in)
   if(walletKey) {
     var inKey = copper.fromWIF(walletKey.priv)
     copper.unspents(walletKey).then(function(unspents){
-      console.log('unspents', unspents.map(function(u){return u.value/100000000+"btc"}))
       tx = copper.transaction()
-      var inHash = unspents[0].tx_hash
-      tx.addInput(inHash, 0)
+      unspents.map(function(u){
+        var inHash = unspents[0].tx_hash
+        tx.addInput(inHash, 0)
+        console.log(' input:', walletKey.pub, u.value/100000000+"btc")
+      })
+      tx.addOutput(args.out, args.amount*100000000)
+      console.log('output:', args.out, args.amount+"btc")
+      tx.sign(0, inKey)
+      console.log('TX:')
+      console.log(tx.build().toHex())
     })
   } else {
     console.log('no private key found for', args.in)
