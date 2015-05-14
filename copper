@@ -55,7 +55,7 @@ if(cmd === 'new') {
   console.log('pub:', chalk.green(key.pub))
 }
 
-if(cmd === 'send') {
+if(cmd === 'tx') {
   var from = args._.shift()
-  console.log('send', from)
+  console.log('tx', 'in', args.in, 'out', args.out, 'amount', args.amount)
 }
