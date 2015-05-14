@@ -66,4 +66,12 @@ if(cmd === 'new') {
 if(cmd === 'tx') {
   var from = args._.shift()
   console.log('tx', 'in', args.in, 'out', args.out, 'amount', args.amount)
+  var inPriv = copper.keyFind(keys, args.in)
+  if(inPriv) {
+    tx = copper.transaction()
+    tx.addInput("abc123")
+  } else {
+    console.log('no private key found for', args.in)
+  }
 }
+
