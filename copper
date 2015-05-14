@@ -9,44 +9,52 @@ var args = require('yargs').argv
 var Copper = require('./lib/copper')
 var copper = new Copper()
 
-if(args._.length == 1 && args._[0].length == 34) {
-  args._.unshift('balance')
+var keys
+if(args.wallet) {
+  keys = copper.loadBitcoinWallet(args.wallet)
+  if(keys) {
+    console.log('wallet:', args.wallet, chalk.green(keys.length), 'keys read.')
+  } else {
+    console.log('error loading wallet:', args.wallet)
+  }
+}
+
+if(args._.length == 1) {
+  var firstWord = args._[0]
+  if(copper.isBitcoinPublicAddress(firstWord)) {
+    args._.unshift('balance')
+  }
 }
 
 var cmd = args._.shift() || 'balance'
 
 if(cmd === 'balance') {
-  var keys
 
-  if(args._.length > 0) {
-    var first = args._.shift()
-    keys = [ copper.keyFromAddress(first) ]
-  }
-
-  if(args.wallet) {
-    console.log('wallet:', args.wallet)
-    keys = copper.loadBitcoinWallet(args.wallet)
-    if(keys) {
-      console.log('' + chalk.green(keys.length), 'keys read.')
-    } else {
-      console.log('error loading wallet')
+  if(!keys) {
+    if(args._.length > 0) {
+      var firstWord = args._.shift()
+      keys = [ copper.keyFromAddress(firstWord) ]
     }
   }
 
-  console.log('gathering balances for', keys.length, 'keys')
-  copper.balances(keys).then(function(balances){
-    var rows = []
-    for(var idx in keys) {
-      rows.push({pub:keys[idx].pub, balance:balances[idx]})
+  if(keys) {
+    if(keys.length > 1) {
+      console.log('gathering balances for', keys.length, 'keys')
     }
-    rows.sort(function(a,b){return a.balance.minus(b.balance).toFixed()})
-    var values = rows.filter(function(row){return row.balance > 0})
-    values.forEach(function(row){
-      console.log(row.pub, row.balance.toString())
+    copper.balances(keys).then(function(balances){
+      var rows = []
+      for(var idx in keys) {
+        rows.push({pub:keys[idx].pub, balance:balances[idx]})
+      }
+      rows.sort(function(a,b){return a.balance.minus(b.balance).toFixed()})
+      var values = rows.filter(function(row){return row.balance > 0})
+      values.forEach(function(row){
+        console.log(row.pub, row.balance.toString())
+      })
+      var total = balances.reduce(function(memo, balance){return memo.plus(balance)}, new Decimal(0))
+      console.log('Total:', chalk.green(total), 'BTC')
     })
-    var total = balances.reduce(function(memo, balance){return memo.plus(balance)}, new Decimal(0))
-    console.log('Wallet Total:', chalk.green(total))
-  })
+  }
 }
 
 if(cmd === 'new') {
