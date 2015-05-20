@@ -87,6 +87,12 @@ if(cmd === 'tx') {
             if(available >= satoshi_send) {
               tx.addOutput(args.out, satoshi_send)
               console.log('output:', args.out, args.amount+"btc")
+              var fee = args.fee || 0.0001
+              var satoshi_fee = fee * 100000000
+              var change = available - satoshi_send - satoshi_fee
+              tx.addOutput(args.in, change)
+              console.log('change:', args.in, change/100000000+"btc")
+              console.log('   fee:                                   ', fee+"btc")
               tx.sign(0, inKey)
               console.log('TX:')
               console.log(tx.build().toHex())
