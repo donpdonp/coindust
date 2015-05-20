@@ -91,7 +91,7 @@ if(cmd === 'tx') {
               var satoshi_fee = fee * 100000000
               var change = available - satoshi_send - satoshi_fee
               tx.addOutput(args.in, change)
-              console.log('change:', args.in, change/100000000+"btc")
+              console.log('       ', args.in, change/100000000+"btc", '(change)')
               console.log('   fee:                                   ', fee+"btc")
               tx.sign(0, inKey)
               console.log('TX:')
