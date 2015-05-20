@@ -1,0 +1,13 @@
+dust v0.01
+usage: dust <command> [<args>]
+
+$ dust new
+creates new bitcoin address and private key
+
+$ dust balance <bitcoin address>|--wallet <filename>
+check the balance of an address or an entire wallet
+
+$ dust tx --in <address> --out <address> --amount <btc> --wallet <filename>
+builds bitcoin transaction. Safe to use - DOES NOT SEND.
+Use https://blockchain.info/pushtx to submit transaction.
+supported wallet format: dump file from bitcoin-core

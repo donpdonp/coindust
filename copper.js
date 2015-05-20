@@ -121,14 +121,5 @@ if(cmd === 'tx') {
 }
 
 function help() {
-  console.log('dust v0.01')
-  console.log('usage: dust <command> [<args>]')
-  console.log('$ dust new')
-  console.log('creates new bitcoint address and private key')
-  console.log('$ dust balance <bitcoin address>|--wallet <filename>')
-  console.log('check the balance of an address or an entire wallet')
-  console.log('$ dust tx --in <address> --out <address> --amount <btc> --wallet <filename>')
-  console.log('builds bitcoin transaction. Safe to use - DOES NOT SEND.')
-  console.log('Use https://blockchain.info/pushtx to submit transaction.')
-  console.log('supported wallet format: dump file from bitcoin-core')
+  console.log(fs.readFileSync('help.txt', 'utf8'))
 }
