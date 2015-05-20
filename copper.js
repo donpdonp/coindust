@@ -9,6 +9,10 @@ var args = require('yargs').argv
 var Copper = require('./lib/copper')
 var copper = new Copper()
 
+if(args._.length == 0) {
+  help()
+}
+
 var keys
 if(args.wallet) {
   keys = copper.loadBitcoinWallet(args.wallet)
@@ -86,3 +90,9 @@ if(cmd === 'tx') {
   }
 }
 
+function help() {
+  console.log('usage: dust <command> [<args>]')
+  console.log('$ dust new')
+  console.log('$ dust balance <bitcoin address>')
+  console.log('$ dust tx --in <address> --out <address> --amount <btc>')
+}
