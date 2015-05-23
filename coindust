@@ -1,2 +1,2 @@
 #!/bin/sh
-node copper $*
+node ./lib/coindust.js $*
