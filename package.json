@@ -1,4 +1,8 @@
-{ "dependencies": { "bitcoinjs-lib": "~> 1.5.6", 
+{
+  "name": "coindust",
+  "version" : "0.0.1",
+  "author": "Don Park <donp@donp.org>",
+  "dependencies": { "bitcoinjs-lib": "~> 1.5.6", 
                     "decimal.js": "*",
                     "chalk": "*",
                     "yargs": "*",
@@ -6,5 +10,8 @@
                     "request-promise": "*",
                     "chain-node": "*" 
                   },
-  "bin" : {"copper":"copper"}
+  "bin" : {"coindust":"./coindust"},
+  "keywords": ["bitcoin", "cryptocoin" ],
+  "preferGlobal": true
+
 }
