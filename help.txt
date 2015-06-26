@@ -9,5 +9,3 @@ check the balance of an address or an entire wallet
 
 $ coindust tx --in <address> --out <address> --amount <btc> --wallet <filename>
 builds bitcoin transaction. Safe to use - DOES NOT SEND.
-Use https://blockchain.info/pushtx to submit transaction.
-supported wallet format: dump file from bitcoin-core
