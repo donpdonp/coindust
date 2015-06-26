@@ -30,5 +30,10 @@ TX:
 0100000001a30b283b7ffe227f0e008f2f0ec024edbc7a988b44983ec79e9ba49334dea265d0e976502207e0dc9a53d4be...
 ```
 
-Wallet file is the output of the 'dumpwallet' command in bitcoin-core.
+Private keys are read from a "wallet dump" which is the output of the 'dumpwallet' command in bitcoin-core.
+To create your own wallet file, put the private/public key in a text file using the following format:
+<code>
+L4FSFZ1MM7VZF4psXrwrvDrBgrrSyrToaw9VzRKhxBikCkE3dAKE # addr=16bnbAB6VKGELxwYhXdtKVrtbLJMpdTeor
+</code>
+
 
