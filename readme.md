@@ -31,9 +31,10 @@ TX:
 ```
 
 Private keys are read from a "wallet dump" which is the output of the 'dumpwallet' command in bitcoin-core.
-To create your own wallet file, put the private/public key in a text file using the following format:
-<code>
-L4FSFZ1MM7VZF4psXrwrvDrBgrrSyrToaw9VzRKhxBikCkE3dAKE # addr=16bnbAB6VKGELxwYhXdtKVrtbLJMpdTeor
-</code>
 
+To create a wallet file by hand, put the private/public key in a text file using the following format:
+
+```
+L4FSFZ1MM7VZF4psXrwrvDrBgrrSyrToaw9VzRKhxBikCkE3dAKE # addr=16bnbAB6VKGELxwYhXdtKVrtbLJMpdTeor
+```
 
