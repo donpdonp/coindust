@@ -3,7 +3,7 @@ usage: coindust <command> [<args>]
 $ coindust new [<name>] [<private key>]
 creates new bitcoin address and saves the public and private key
 
-$ coindust balance [<bitcoin address> | <wallet dump file>]
+$ coindust balance [ [<bitcoin address>] | [--wallet <wallet dump file>] ]
 check the balance of an address or a bitcoind wallet dump file
 
 $ coindust tx --in <address> --out <address> --amount <btc> --wallet <filename>
