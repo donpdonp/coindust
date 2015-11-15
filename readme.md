@@ -1,6 +1,6 @@
 Coindust is a command-line bitcoin wallet and utility.
 
-Note: this is pre-1.0 software and should be trusted with only small amounts of bitcoin. Be sure to encrypt and/or back up the wallet file in ~/.config/coindust/wallet.json
+Note: this is pre-1.0 software and should be trusted with only small amounts of bitcoin. Be sure to protect the wallet file in ~/.config/coindust/wallet.json.
 
 ### Install
 
@@ -51,7 +51,7 @@ TX:
 ```
 
 
-Bitcoin addresses and private keys are kept in ~/.config/coindust/wallet.json. NOTE this file is unencrypted. Encryption and backups are left to the user!
+Bitcoin addresses and private keys are kept in ~/.config/coindust/wallet.json. Protect this file with your own mechanism for encryption and backups!
 
 [1] Uses blockexplorer.com to get a balance from a bitcoind address
 [2] Uses blockchain.info to discover the 'unspent outputs' of the 'in' address
