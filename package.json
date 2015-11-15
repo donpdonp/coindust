@@ -15,6 +15,7 @@
                     "chain-node": "~> 3.1.2",
                     "root-require": "*"
                   },
+  "devDependencies": { "standard-format": "*"},
   "bin" : {"coindust":"./coindust"},
   "keywords": ["bitcoin", "cryptocoin", "wallet" ],
   "preferGlobal": true,
