@@ -1,6 +1,6 @@
-coindust is a command-line bitcoin wallet and utility.
+Coindust is a command-line bitcoin wallet and utility.
 
-Note: this is pre-1.0 software and should be trusted with only small amounts of bitcoin.
+Note: this is pre-1.0 software and should be trusted with only small amounts of bitcoin. Be sure to encrypt and/or back up the wallet file in ~/.config/coindust/wallet.json
 
 ### Install
 
@@ -23,8 +23,8 @@ priv: L3YfxDBDrYAXL7U7eFWaxTejheCG3Cf7MKGRjUjXRgEZDF5h3c4X
 $ coindust balance
 gathering balances for 2 keys
 1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf 0.00000000 BTC
-1BP7zWr8Aa8XzohffGRnzsowEqALNF3hZ3 0.00000000 BTC "donations"
-Total: 0.00000 BTC
+1BP7zWr8Aa8XzohffGRnzsowEqALNF3hZ3 0.03000000 BTC "comic books"
+Total: 0.03000 BTC
 
 ```
 * Query the balance of a single bitcoin address [1]
