@@ -3,7 +3,7 @@ coindust is a command-line bitcoin wallet and utility.
 ### Install
 
 ```sh
-$ npm install --save get-stdin-promise
+$ npm install -g coindust
 ```
 
 ### Usage
