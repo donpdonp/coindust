@@ -1,13 +1,13 @@
 usage: coindust <command> [<args>]
 
 $ coindust new [<name>]
-creates new bitcoin address and saves the public and private key
+adds new bitcoin address and private key to the wallet.
 
 $ coindust import [<name>]
-stores an existing bitcoin address using a private key in WIF form
+add an existing bitcoin address to the wallet using a private key in WIF form.
 
 $ coindust balance [ [<bitcoin address>] | [--wallet <bitcoind wallet dump file>] ]
 check the balance of an address or a bitcoind wallet dump file
 
-$ coindust tx --in <address> --out <address> --amount <btc> --wallet <filename>
+$ coindust tx --in <address> --out <address> --amount <btc>
 build and display bitcoin transaction. Safe to use - DOES NOT SUBMIT TRANSACTION.
