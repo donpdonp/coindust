@@ -12,9 +12,10 @@ $ npm install -g coindust
 
 * Add a new bitcoin address and private key to the wallet.
 ```
-$ coindust new
+$ coindust new comic books
  pub: 1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj
 priv: L3YfxDBDrYAXL7U7eFWaxTejheCG3Cf7MKGRjUjXRgEZDF5h3c4X
+name: comic books
 ```
 
 * Query the balances of addresses in the wallet [1]
@@ -23,23 +24,25 @@ priv: L3YfxDBDrYAXL7U7eFWaxTejheCG3Cf7MKGRjUjXRgEZDF5h3c4X
 $ coindust balance
 gathering balances for 2 keys
 1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf 0.00000000 BTC
-1BP7zWr8Aa8XzohffGRnzsowEqALNF3hZ3 0.03000000 BTC "comic books"
+1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj 0.03000000 BTC "comic books"
 Total: 0.03000 BTC
 
 ```
 * Query the balance of a single bitcoin address [1]
 ```
-$ coindust 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m
+$ coindust 1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf
 gathering balances for 1 keys
-1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m 0.00000000 BTC
+1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf 0.00000000 BTC
 Total: 0 BTC
 ```
 
 * Build a transaction between two bitcoin addresses [2]
-Note this builds the transaction and displays it in hex form. It does
-not submit the transaction to any service. Using the hex form you
+
+Note this builds the transaction and displays it in hex form. _It does
+not submit the transaction_. Using the hex form you
 can paste the transaction into a service which will submit the
-transaction into the bitcoin network.
+transaction into the bitcoin network.[3]
+
 ```
 $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --amount 0.01
  input: 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.05000BTC
@@ -54,5 +57,7 @@ TX:
 Bitcoin addresses and private keys are kept in ~/.config/coindust/wallet.json. Protect this file with your own mechanism for encryption and backups!
 
 [1] Uses blockexplorer.com to get a balance from a bitcoind address
+
 [2] Uses blockchain.info to discover the 'unspent outputs' of the 'in' address
 
+[3] https://live.blockcypher.com/bcy/decodetx/
