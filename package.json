@@ -12,7 +12,6 @@
                     "yargs": "~> 3.9.0",
                     "bluebird": "~> 2.9.25",
                     "request-promise": "~> 0.4.2",
-                    "chain-node": "~> 3.1.2",
                     "root-require": "*"
                   },
   "devDependencies": { "standard-format": "*"},
