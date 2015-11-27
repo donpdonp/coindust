@@ -10,7 +10,7 @@ $ npm install -g coindust
 
 ### Usage
 
-* Add a new bitcoin address and private key to the wallet.
+* Add a new bitcoin address and private key to the wallet using an optional account name.
 ```
 $ coindust new comic books
  pub: 1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj
@@ -23,8 +23,8 @@ name: comic books
 ```
 $ coindust balance
 gathering balances for 2 keys
-1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf 0.00000000 BTC
-1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj 0.03000000 BTC "comic books"
+1AVrK8LZeKxvnrT3AiyZ3uvceYTdNyNELf 0.03000000 BTC
+1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj 0.00000000 BTC "comic books"
 Total: 0.03000 BTC
 
 ```
@@ -41,7 +41,7 @@ Total: 0 BTC
 Note this builds the transaction and displays it in hex form. _It does
 not submit the transaction_. Using the hex form you
 can paste the transaction into a service which will submit the
-transaction into the bitcoin network.[3]
+transaction into the bitcoin network. [3]
 
 ```
 $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --amount 0.01
@@ -56,8 +56,8 @@ TX:
 
 Bitcoin addresses and private keys are kept in ~/.config/coindust/wallet.json. Protect this file with your own mechanism for encryption and backups!
 
-[1] Uses blockexplorer.com to get a balance from a bitcoind address
+[1] Uses blockexplorer.com to get a balance from a bitcoin address.
 
-[2] Uses blockchain.info to discover the 'unspent outputs' of the 'in' address
+[2] Uses blockchain.info to discover the 'unspent outputs' of the 'in' address.
 
-[3] https://live.blockcypher.com/bcy/decodetx/
+[3] for example https://live.blockcypher.com/bcy/decodetx/
