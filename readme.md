@@ -50,7 +50,7 @@ $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8f
 output: 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m 0.01000btc
         1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.03999btc (change)
    fee:                                    0.00001btc
-  rate:                                   25 satoshis/byte
+  rate:                                    2 satoshis/byte
 TX (402 bytes before encoding):
 0100000001a30b283b7ffe227f0e008f2f0ec024edbc7a988b44983ec79e9ba49334dea265d0e976502207e0dc9a53d4be...
 ```
