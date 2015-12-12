@@ -2,9 +2,9 @@
 
 Coindust is a command-line bitcoin wallet and utility.
 
-In the early days of bitcoin (2013) it was possible and even desirable to run a full node. Running a bitcoin node today (2015) required days of syncing and 10s of gigabytes of disk. Cell phone apps have demonstrated that keeping the private keys local and using public APIs can be a great way to use Bitcoin.
+Coindust was written to perform common bitcoin operations where key storage is local (see Safety section below) and interacting with the bitcoin blockchain is done through various public APIs.
 
-Coindust was written to perform common bitcoin operations where key storage is local (see Safety section below) and interacting with the bitcoin blockchain is done through a variety of public API services.
+In the early days of bitcoin (2013) it was possible and even desirable to run a full node. Running a bitcoin node today (2015) required days of syncing and 10s of gigabytes of disk. Cell phone apps have demonstrated that keeping the private keys local and using public APIs can be a great way to use Bitcoin.
 
 ### Install
 
@@ -19,7 +19,7 @@ $ npm install -g coindust
 $ coindust new comic books
  pub: 1FsS76LHrh8Fq4ee5NP9Df3e2vqf3nzmDj
 priv: L3YfxDBDrYAXL7U7eFWaxTejheCG3Cf7MKGRjUjXRgEZDF5h3c4X
-name: comic books
+name: "comic books"
 ```
 
 * Query the balances of addresses in the wallet [1]
