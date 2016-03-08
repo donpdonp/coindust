@@ -46,12 +46,12 @@ Note this builds the transaction and displays it in hex form. _It does not submi
 
 ```
 $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --amount 0.01
- input: 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.05000btc
+ input: 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.05000btc 1 of 1 unspents
 output: 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m 0.01000btc
-        1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.03999btc (change)
+change: 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv 0.03999btc
    fee:                                    0.00001btc
   rate:                                    2 satoshis/byte
-TX (402 bytes before encoding):
+Hex encoded transaction:
 0100000001a30b283b7ffe227f0e008f2f0ec024edbc7a988b44983ec79e9ba49334dea265d0e976502207e0dc9a53d4be...
 ```
 
@@ -63,6 +63,11 @@ The hex form of the transaction can be pasted it into a bloockchain service whic
 
 [3] for example https://live.blockcypher.com/bcy/decodetx/
 
+* Also available is tx --sweep to empty the address (sets amount to total - fee)
+
+```
+$ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --sweep
+```
 
 #### Safety
 
