@@ -6,6 +6,8 @@
     "type": "git",
     "url": "https://github.com/donpdonp/coindust"
   },
+  "scripts": { "lint": "gulp lint",
+               "test": "mocha"},
   "dependencies": { "bitcoinjs-lib": "~> 1.5.6",
                     "decimal.js": "~> 4.0.2",
                     "chalk": "~> 1.0.0",
@@ -14,9 +16,11 @@
                     "request-promise": "~> 0.4.2",
                     "root-require": "*"
                   },
-  "devDependencies": { "standard-format": "*"},
+  "devDependencies": { "standard-format": "*",
+                       "chai": "*",
+                       "mocha": "*"},
   "bin" : {"coindust":"./coindust"},
   "keywords": ["bitcoin", "cryptocoin", "wallet" ],
   "preferGlobal": true,
-  "license": "cc0"
+  "license": "CC0-1.0"
 }
