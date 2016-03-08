@@ -6,8 +6,7 @@
     "type": "git",
     "url": "https://github.com/donpdonp/coindust"
   },
-  "scripts": { "lint": "gulp lint",
-               "test": "mocha"},
+  "scripts": {"test": "mocha"},
   "dependencies": { "bitcoinjs-lib": "~> 1.5.6",
                     "decimal.js": "~> 4.0.2",
                     "chalk": "~> 1.0.0",
