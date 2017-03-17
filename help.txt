@@ -9,5 +9,8 @@ add an existing bitcoin address to the wallet using a private key in WIF form.
 $ coindust balance [ [<bitcoin address>] | [--wallet <bitcoind wallet dump file>] ]
 check the balance of an address or a bitcoind wallet dump file
 
+$ coindust tx --in <address> --out <address> --sweep
 $ coindust tx --in <address> --out <address> --amount <btc>
-build and display bitcoin transaction. Safe to use - DOES NOT SUBMIT TRANSACTION.
+$ coindust tx --in <address> --out <address> --amount <btc> --fee <btc fee total>
+build a bitcoin transaction for the total address amount using the recommended fee,
+or for a specific amount/fee. Safe to use - DOES NOT SUBMIT TRANSACTION.
