@@ -42,7 +42,7 @@ Total: 0 BTC
 
 * Build a transaction between two bitcoin addresses [2]
 
-Note this builds the transaction and displays it in hex form. _It does not submit the transaction_.
+*Note*: this builds the transaction and displays it in hex form. _It does not submit the transaction_.
 
 ```
 $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --amount 0.0008
@@ -69,7 +69,7 @@ The hex form of the transaction can be pasted it into a blockchain service which
 
 [4] for example https://live.blockcypher.com/bcy/decodetx/
 
-* Also available is tx --sweep to empty the address (sets amount to total - fee)
+* Use tx --sweep to empty the address (sets amount to address total after fee)
 
 ```
 $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8fSz241Zginvoj1m --sweep
