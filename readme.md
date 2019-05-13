@@ -2,9 +2,9 @@
 
 Coindust is a command-line bitcoin wallet and utility.
 
-Coindust was written to perform common bitcoin operations where key storage is local (see Safety section below) and interacting with the bitcoin blockchain is done through public Bitcoin APIs.
+Coindust performs common bitcoin operations where key storage is local (see Safety section below) and interacting with the bitcoin blockchain is done through public Bitcoin APIs.
 
-In the early days of bitcoin (2013) it was possible and even desirable to run a full node. Running a  node today (2015) requires days of syncing and 10s of gigabytes of disk. Cell phone apps have shown keeping the private keys local and using public APIs can be a great way to use Bitcoin.
+In the early days of bitcoin (2013) it was common to host a full node. Today(2015) the requirements of running a full node and high - many hours of initial syncing and 10s of gigabytes of disk. Cell phone cryptocoin apps have shown keeping private keys local and using public APIs can be a great way to use Bitcoin.
 
 ### Install
 
@@ -77,6 +77,6 @@ $ coindust tx --in 1Q182Kx8y7gkXvvEod8nwt5gDDa86Dr2tv --out 1MXEaXamNSLUXQKWZu8f
 
 #### Safety
 
-Bitcoin addresses and private keys are kept unencrypted in ~/.config/coindust/wallet.json. Protect this file with your own mechanism for encryption and backups!
+Bitcoin addresses and private keys are kept unencrypted in ~/.config/coindust/wallet.json. Protect this file with your own mechanism for encryption and backups.
 
-Building transactions with this tool is not exaustively tested. Use only small amounts. NO WARRANTY. USE AT OWN RISK.
+Building transactions with this tool is not exhaustively tested. Use only small amounts. NO WARRANTY. USE AT OWN RISK.
